@@ -23,50 +23,34 @@ func main() {
 		} else if len(os.Args) == 4 {
 			fileName = strings.ToLower(os.Args[b])
 		}
+		if ascii.OnlyContains(os.Args[a], "\\n") {
+			WordsInArr = WordsInArr[:len(WordsInArr)-1]
+		}
+		FirstWord := true
 		for l := 0; l < len(WordsInArr); l++ {
 			var Words [][]string
 			Text1 := WordsInArr[l]
-			if string(Text1) == "" {
-				fmt.Println("")
+			Text1 = strings.ReplaceAll(Text1, "\\t", "   ")
+			for j := 0; j < len(Text1); j++ {
+				Words = append(Words, ascii.ReadLetter(Text1[j], fileName))
+			}
+			if validation == "output" {
+				ascii.WriteFile(Words, FirstWord)
+				FirstWord = false
 			} else {
-				for j := 0; j < len(Text1); j++ {
-					Words = append(Words, ascii.ReadLetter(Text1[j], fileName))
-				}
-				if validation == "output" {
-					WriteFile(Words)
-				} else {
-					for w := 0; w < 8; w++ {
-						for n := 0; n < len(Words); n++ {
-							fmt.Print(Words[n][w])
-						}
-						if w+1 != 8 {
-							fmt.Println()
-						}
+				for w := 0; w < 8; w++ {
+					if len(Text1) == 0 {
+						break
 					}
-					fmt.Println()
+					for n := 0; n < len(Words); n++ {
+						fmt.Print(Words[n][w])
+					}
+					if w+1 != 8 {
+						fmt.Println()
+					}
 				}
-
+				fmt.Println()
 			}
 		}
-	}
-}
-
-func WriteFile(s [][]string) {
-	ArgsPass := os.Args
-	fileB, err := os.Create(strings.TrimLeft(ArgsPass[1], "--output="))
-
-	if err != nil {
-		fmt.Println("Error \n", err)
-	} else {
-		for w := 0; w < 8; w++ {
-			for n := 0; n < len(s); n++ {
-				fileB.WriteString(s[n][w])
-			}
-			if w+1 != 8 {
-				fileB.WriteString("\n")
-			}
-		}
-		fileB.WriteString("\n")
-
 	}
 }

@@ -1,51 +1,51 @@
 #!/bin/bash
 
-echo "go run . "banana" standard abc"
-go run . "banana" standard abc | cat -e 
+echo "go run . --output=banner01.txt \"hello\" standard"
+go run . --output=banner01.txt "hello" standard | cat -e 
 echo
 echo "---------------------------------------------------------"
 
-echo "run . "hello" standard | cat -e"
-go run . "hello" standard | cat -e 
+echo "go run . --output=banner02.txt \"Hello There!\" shadow"
+go run . --output=banner02.txt "Hello There!" shadow | cat -e 
 echo
 echo "---------------------------------------------------------"
 
-echo "go run . "hello world" shadow | cat -e"
-go run . "hello world" shadow | cat -e 
+echo "go run . --output=test00.txt \"First\nTest\" shadow | cat -e"
+go run . --output=test00.txt "First\nTest" shadow | cat -e 
 echo
 echo "---------------------------------------------------------"
 
-echo "go run . "nice 2 meet you" thinkertoy | cat -e"
-go run . "nice 2 meet you" thinkertoy | cat -e 
+echo "go run . --output=test01.txt \"hello\" standard | cat -e"
+go run . --output=test01.txt "hello" standard | cat -e 
 echo
 echo "---------------------------------------------------------"
 
-echo "go run . "you \& me" standard | cat -e"
-go run . "you & me" standard | cat -e 
+echo "go run . --output=test02.txt \"123 -> \#$%\" standard | cat -e"
+go run . --output=test02.txt "123 -> #$%" standard | cat -e 
 echo
 echo "---------------------------------------------------------"
 
-echo "go run . "123" shadow | cat -e"
-go run . "123" shadow | cat -e 
+echo "go run . --output=test03.txt \"432 -> \#$%\&@\" shadow | cat -e"
+go run . --output=test03.txt "432 -> #$%&@" shadow | cat -e 
 echo
 echo "---------------------------------------------------------"
 
-echo "go run . "/\(\"\)" thinkertoy | cat -e"
-go run . "/(\")" thinkertoy | cat -e 
+echo "go run . --output=test04.txt \"There\" shadow | cat -e"
+go run . --output=test04.txt "There" shadow | cat -e 
 echo
 echo "---------------------------------------------------------"
 
-echo "go run . "ABCDEFGHIJKLMNOPQRSTUVWXYZ" shadow | cat -e"
-go run . "ABCDEFGHIJKLMNOPQRSTUVWXYZ" shadow | cat -e 
+echo "go run . --output=test05.txt \"123 -> \"#$%@\" thinkertoy | cat -e"
+go run . --output=test05.txt "123 -> \"#$%@" thinkertoy | cat -e 
 echo
 echo "---------------------------------------------------------"
 
-echo "go run . '\\!\" #$%&\'\"'\"'()*+,-./' thinkertoy | cat -e"
-go run . '\!" #$%&'"'"'()*+,-./' thinkertoy | cat -e 
+echo "go run . -output=test06.txt \"2 you\" thinkertoy | cat -e"
+go run . --output=test06.txt "2 you" thinkertoy | cat -e 
 echo
 echo "---------------------------------------------------------"
 
-echo "go run . "It\'s Working" thinkertoy | cat -e"
-go run . "It's Working" thinkertoy | cat -e 
+echo "go run . --output=test07.txt 'Testing long output!' standard | cat -e"
+go run . --output=test07.txt 'Testing long output!' standard | cat -e 
 echo
 echo "---------------------------------------------------------"
